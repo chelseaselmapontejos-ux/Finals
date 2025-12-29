@@ -1,0 +1,209 @@
+/* =====================
+   VARIABLES
+===================== */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222;
+  --accent-color: #0077ff;
+  --card-bg: #f4f4f4;
+}
+
+body.dark {
+  --bg-color: #121212;
+  --text-color: #eaeaea;
+  --card-bg: #1e1e1e;
+}
+
+/* =====================
+   GLOBAL
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: url("bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* =====================
+   NAVBAR
+===================== */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10%;
+  z-index: 1000;
+}
+/* MENU ICON (ALWAYS VISIBLE) */
+.menu-icon {
+  font-size: 26px;
+  cursor: pointer;
+  display: block;
+  z-index: 2000;
+  padding: 5px;
+
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+/* NAV LINKS (HIDDEN INSIDE MENU) */
+.nav-links {
+   list-style: none;
+  position: absolute; /* allow it to float over content */
+  top: 70px;
+  right: 10%;
+  background: var(--bg-color);
+  flex-direction: column;
+  width: 180px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: none; /* hidden initially */
+  gap: 15px;
+  z-index: 1500;
+  pointer-events: auto;
+}
+
+/* SHOW MENU */
+.nav-links.active {
+  display: flex;
+}
+
+.logo {
+  color: var(--accent-color);
+  margin-right: auto;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+
+.toggle-btn {
+  cursor: pointer;
+  background: none;
+  border: 1px solid var(--accent-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* =====================
+   SECTIONS
+===================== */
+.section {
+  padding: 90px 10%;
+}
+
+.home {
+  height: 100vh;
+  background: url("bg.jpg") no-repeat center center;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: white;
+  position: relative;
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.home * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.tagline {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.quote {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* =====================
+   SKILLS & PROJECTS
+===================== */
+.skills-grid,
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.skill-card,
+.project-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* =====================
+   CONTACT
+===================== */
+.contact-form {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: row;
+  }
+
+  .section {
+    padding: 80px 5%;
+  }
+}
